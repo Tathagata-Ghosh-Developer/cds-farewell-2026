@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDS Farewell 2026: The Final Epoch 📉</title>
+  <meta name="description" content="CDS IISc Farewell 2026. Two batches. One legendary night. Zero CUDA Memory left.">
+  <meta property="og:title" content="CDS Farewell 2026: The Final Epoch">
+  <meta property="og:description" content="The most chaotic farewell IISc CDS has ever seen. May 13, 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div id="loading-screen">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">cds_farewell.exe</span>
+      </div>
+      <div class="terminal-body">
+        <p class="terminal-line done">$ pip install farewell-2026</p>
+        <p class="terminal-line done">Installing dependencies...</p>
+        <p id="loading-msg" class="terminal-line active">Optimizing Adam...</p>
+        <p class="terminal-cursor">█</p>
+      </div>
+    </div>
+    <p class="loading-skip">Click anywhere to skip</p>
+    <div class="scanline-overlay"></div>
+  </div>
+
+  <!-- ============ UNMUTE BUTTON ============ -->
+  <button id="unmute-btn" title="Toggle Audio">🔇 Unmute</button>
+
+  <!-- ============ GATEKEEPER (LANDING) ============ -->
+  <section id="gatekeeper">
+    <div class="gatekeeper-bg"></div>
+    <div class="gatekeeper-content">
+      <h1 class="glitch-text" data-text="CDS Farewell 2026">CDS Farewell 2026</h1>
+      <p class="glitch-sub">The Final Epoch 📉</p>
+      <p class="gatekeeper-tagline">Two batches. One legendary night. Zero CUDA Memory left.<br><strong>Who are you?</strong></p>
+      <div class="gatekeeper-buttons">
+        <div class="gate-btn-wrap">
+          <button id="btn-senior" class="gate-btn senior-btn">
+            <span class="btn-emoji">👑</span>
+            <span class="btn-label">I'm a Senior</span>
+            <span class="btn-batch">(Batch 24-26)</span>
+          </button>
+          <div class="hover-tooltip senior-tooltip">Aaiye Padhariye! PPO lag gaya ya thesis bachi hai?</div>
+        </div>
+        <div class="gate-btn-wrap">
+          <button id="btn-junior" class="gate-btn junior-btn">
+            <span class="btn-emoji">🤡</span>
+            <span class="btn-label">I'm a Junior</span>
+            <span class="btn-batch">(Batch 25-27)</span>
+          </button>
+          <div class="hover-tooltip junior-tooltip">Wallet empty? Still debugging that array out of bounds?</div>
+        </div>
+      </div>
+    </div>
+    <div id="confetti-container"></div>
+  </section>
+
+  <!-- ============ MAIN CONTENT (hidden initially) ============ -->
+  <main id="main-content" style="display:none;">
+
+    <!-- ======= SENIOR SECTION ======= -->
+    <section id="senior-section" class="experience-section" style="display:none;">
+      <div class="emoji-rain-container" id="emoji-rain"></div>
+      <div class="experience-hero">
+        <h2 class="section-title neon-green">Welcome, Lords &amp; Ladies of CDS! 🙇‍♂️</h2>
+        <p class="section-subtitle">You successfully overfitted on the IISc campus.<br>Now it's time to test your generalization in the real world.</p>
+        <div class="experience-body glass-card">
+          <p>You've survived the late-night lab grinds, the unyielding deadlines, and the sheer terror of <em>"Let's discuss this tomorrow"</em> emails from your PI. Whether you are heading off to print money at an MNC, suffering through a Ph.D., or still figuring out why your model's loss is <code>NaN</code>... tonight is about <strong>YOU</strong>.</p>
+          <p>May your corporate journey be smoother than a gradient descent without momentum. Drop your laptops, pick up a glass, and let's celebrate your escape!</p>
+        </div>
+        <button id="reveal-pass-btn" class="cta-btn neon-btn">Reveal My Free Pass 🎫</button>
+      </div>
+
+      <!-- VIP Ticket (hidden, revealed on click) -->
+      <div id="vip-ticket" class="vip-ticket" style="display:none;">
+        <div class="ticket-inner">
+          <div class="ticket-header">✦ VIP PASS ✦</div>
+          <div class="ticket-body">
+            <p class="ticket-name">CDS Senior · Batch 2024-26</p>
+            <p class="ticket-event">THE FINAL EPOCH</p>
+            <div class="ticket-details">
+              <span>📅 13 May 2026</span>
+              <span>⏰ 7:00 PM</span>
+              <span>📍 Cocobolo</span>
+            </div>
+          </div>
+          <div class="ticket-barcode">||||| |||| ||| ||||| |||| ||| |||| |||||</div>
+        </div>
+      </div>
+
+      <!-- Floating Meme Quotes -->
+      <div class="floating-quotes">
+        <div class="floating-quote" style="--delay:0s;--x:10%;--y:30%;">Error 404: Thesis motivation not found.</div>
+        <div class="floating-quote" style="--delay:2s;--x:65%;--y:20%;">From calculating gradients to calculating CTCs 💸</div>
+        <div class="floating-quote" style="--delay:4s;--x:30%;--y:70%;">If life gives you a dataset, make sure it's linearly separable.</div>
+      </div>
+    </section>
+
+    <!-- ======= JUNIOR SECTION ======= -->
+    <section id="junior-section" class="experience-section" style="display:none;">
+      <div class="experience-hero">
+        <h2 class="section-title neon-pink">Welcome to the Funding Layer. 🚨</h2>
+        <p class="section-subtitle">Our learning rate is 0.001, but our bank balance is straight up 0.00.</p>
+        <div class="experience-body glass-card">
+          <p>Bhai, ek aur hidden layer add karne se paise nahi aayenge! It's time to pay up so we can give our seniors the farewell they deserve (and secure those crucial referrals for next year). We need to fund the booze, the food, the cake, and a couple of <em>surprises</em> we have planned. 🤫</p>
+        </div>
+      </div>
+
+      <!-- Payment Section -->
+      <div class="payment-section glass-card">
+        <div class="payment-category">
+          <h3>🎓 M.Tech / M.Tech (Res)</h3>
+          <p>Mandatory contribution. Consider it an investment in your network.<br><strong>Pay up or we will <code>rm -rf</code> your assignments.</strong></p>
+        </div>
+        <div class="payment-category">
+          <h3>🧑‍🔬 PhDs (Aug 2025)</h3>
+          <p>You guys are invited for free! But if your fellowship actually dropped this month, voluntary donations are accepted.<br><em>(C'mon, don't be a local minima, be a global maxima).</em></p>
+        </div>
+        <div class="upi-box">
+          <p class="upi-heading">Scan to Save CDS Pride</p>
+          <img id="upi-qr" class="upi-qr-img" src="assets/photos/UPI_QR.jpeg" alt="UPI QR Code - ₹2000" loading="lazy">
+          <p class="upi-amount">💰 Fixed Amount: <strong>₹2,000</strong></p>
+          <p class="upi-id">UPI ID: <strong>7890825610@idfcfirst</strong></p>
+          <button id="paid-btn" class="cta-btn paid-btn">I paid! (Don't lie, Tathagata is maintaining an Excel sheet) 📝</button>
+        </div>
+        <button id="panic-btn" class="panic-btn">🚨 PANIC BUTTON 🚨</button>
+      </div>
+    </section>
+
+    <!-- ======= EVENT DETAILS (Common) ======= -->
+    <section id="event-details">
+      <h2 class="section-title neon-purple">The Deployment Parameters 🚀</h2>
+      <div class="details-grid">
+        <div class="detail-card glass-card">
+          <div class="detail-icon">📅</div>
+          <h3>Date</h3>
+          <p class="detail-value">13th May, 2026 (Wednesday)</p>
+          <p class="detail-caption">The day your model finally converges. Mid-week, because weekend plans are a myth anyway.</p>
+        </div>
+        <div class="detail-card glass-card">
+          <div class="detail-icon">⏰</div>
+          <h3>Time</h3>
+          <p class="detail-value">7:00 PM Onwards</p>
+          <p class="detail-caption">Till the venue kicks us out or we hit max_epochs. No alcohol served after 11 PM, plan your latency accordingly.</p>
+        </div>
+        <div class="detail-card glass-card">
+          <div class="detail-icon">📍</div>
+          <h3 id="venue-name" class="venue-clickable">Cocobolo</h3>
+          <p class="detail-value">4th Floor, 42/4, New BEL Rd</p>
+          <p class="detail-caption">Close enough to campus so you can stumble back to your hostel.</p>
+          <a href="https://maps.app.goo.gl/Fcg5zfnJAzfgqsSd6" target="_blank" rel="noopener" id="map-link" class="map-btn">Take me there via Google Maps 🗺️</a>
+        </div>
+        <div class="detail-card glass-card">
+          <div class="detail-icon">👔</div>
+          <h3>Dress Code</h3>
+          <p class="detail-value">Best Dressing & Styling Sense 💅</p>
+          <p class="detail-caption">Come looking like you're about to get placed at Google, not like you just woke up from a 3 AM debugging session. Flex your drip — it's your last chance to look good before the corporate dress code hits. <code>Fashion > GPA</code> tonight.</p>
+          <p class="detail-caption" style="margin-top:8px;font-style:italic;opacity:0.6;">P.S. Seniors — we might have a little surprise up our sleeves at the end. Just show up. 😏</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= PHOTO & VIDEO CAROUSEL ======= -->
+    <section id="carousel-section">
+      <h2 class="section-title neon-green">The Memory Dump 📸</h2>
+      <p class="carousel-subtitle">Drag to scroll · Swipe on mobile</p>
+      <div id="carousel" class="carousel-track"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="site-footer">
+      <p>Made with 🔥 and 0 sleep by CDS Juniors · IISc Bangalore</p>
+      <p class="mono" style="font-size:0.8rem;opacity:0.5;">// TODO: graduate and get a life</p>
+    </footer>
+  </main>
+
+  <!-- ============ CUDA ERROR MODAL ============ -->
+  <div id="cuda-modal" class="modal-overlay" style="display:none;">
+    <div class="cuda-error-box">
+      <div class="cuda-header">⚠ CUDA Runtime Error</div>
+      <pre class="cuda-body">
+RuntimeError: CUDA out of memory.
+Tried to allocate ₹500.00 on device:wallet
+
+  Available:  ₹0.00
+  Total:      ₹0.00
+  Allocated:  ₹0.00 (because you're broke)
+
+Process finished with exit code: POVERTY
+      </pre>
+      <div class="cuda-buttons">
+        <button class="cuda-btn ok" onclick="document.getElementById('cuda-modal').style.display='none'; try{document.getElementById('audio-faah').currentTime=0;document.getElementById('audio-faah').play()}catch(e){}">OK, I'll Pay 💸</button>
+        <button class="cuda-btn cancel" onclick="document.getElementById('cuda-modal').style.display='none'; try{document.getElementById('audio-laughing-cat').currentTime=0;document.getElementById('audio-laughing-cat').play()}catch(e){}">Ignore &amp; Suffer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ EASTER EGG OVERLAY ============ -->
+  <div id="easter-egg-overlay" style="display:none;">
+    <div class="easter-egg-content">
+      <h2>🎬 Ek ka Double! 🎬</h2>
+      <p>Hera Pheri mode activated. Paisa hi paisa hoga!</p>
+    </div>
+  </div>
+
+  <!-- ============ POPUP CONTAINER ============ -->
+  <div id="popup-container"></div>
+
+  <!-- ============ AUDIO ELEMENTS ============ -->
+  <audio id="audio-spiderman" preload="none" src="assets/audio/spiderman.mp3"></audio>
+  <audio id="audio-faah" preload="none" src="assets/audio/faah.mp3"></audio>
+  <audio id="audio-saxophone" preload="none" loop src="assets/audio/saxophone.mp3"></audio>
+  <audio id="audio-chalo" preload="none" src="assets/audio/chalo.mp3"></audio>
+  <audio id="audio-laughing-cat" preload="none" src="assets/audio/laughing-cat.mp3"></audio>
+  <audio id="audio-ladle" preload="none" src="assets/audio/ladle.mp3"></audio>
+  <audio id="audio-phha" preload="none" src="assets/audio/phha.mp3"></audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
