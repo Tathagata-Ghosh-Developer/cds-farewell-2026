@@ -36,6 +36,7 @@
 
   <!-- ============ UNMUTE BUTTON ============ -->
   <button id="unmute-btn" title="Toggle Audio">🔇 Unmute</button>
+  <button id="back-btn" style="display:none;" title="Go Back">← Back</button>
 
   <!-- ============ GATEKEEPER (LANDING) ============ -->
   <section id="gatekeeper">
@@ -167,6 +168,54 @@
           <p class="detail-value">Best Dressing & Styling Sense 💅</p>
           <p class="detail-caption">Come looking like you're about to get placed at Google, not like you just woke up from a 3 AM debugging session. Flex your drip — it's your last chance to look good before the corporate dress code hits. <code>Fashion > GPA</code> tonight.</p>
           <p class="detail-caption" style="margin-top:8px;font-style:italic;opacity:0.6;">P.S. Seniors — we might have a little surprise up our sleeves at the end. Just show up. 😏</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= FACULTY FAREWELL MESSAGES ======= -->
+    <section id="faculty-messages">
+      <h2 class="section-title neon-gold">Faculty.forward_message() 📨</h2>
+      <p class="section-subtitle" style="margin-bottom:40px;">Even the profs got emotional. <code>Exception: TearsOverflow</code></p>
+
+      <div class="faculty-card glass-card">
+        <div class="faculty-header">
+          <img src="assets/photos/sathish-vadhiyar.jpg" alt="Prof. Sathish Vadhiyar" class="faculty-photo" loading="lazy">
+          <div class="faculty-info">
+            <h3 class="faculty-name">Prof. Sathish Vadhiyar</h3>
+            <p class="faculty-role">// The OG Mentor</p>
+          </div>
+        </div>
+        <blockquote class="faculty-quote">
+          “It has been great to have had you in the department, guys! Best wishes, do well, have fun!”
+        </blockquote>
+        <div class="faculty-note typing-container" id="sathish-note">
+          <p class="typing-line">Dear Tathagata,</p>
+          <p class="typing-line">Glad you guys are organizing this. Best wishes for this to set a tradition that will be continued for years.</p>
+          <p class="typing-line">Have a rocking, fun-filled, and trouble-less evening on the 13th.</p>
+          <p class="typing-line faculty-sign">— Sathish</p>
+        </div>
+      </div>
+
+      <div class="faculty-card glass-card">
+        <div class="faculty-header">
+          <img src="assets/photos/phanim_cds.jpeg" alt="Prof. Phani Motamarri" class="faculty-photo" loading="lazy">
+          <div class="faculty-info">
+            <h3 class="faculty-name">Prof. Phani Motamarri</h3>
+            <p class="faculty-role">// The Cool Prof™</p>
+          </div>
+        </div>
+        <blockquote class="faculty-quote">
+          <em>Sent a voice note because typing is so last epoch.</em> 🎙️
+        </blockquote>
+        <div class="faculty-audio-box">
+          <p class="audio-label">🔊 Play Prof. Phani’s Farewell Wishes:</p>
+          <audio id="audio-phani-wishes" controls preload="metadata" src="assets/audio/phani-wishes.m4a" class="faculty-audio-player"></audio>
+          <div id="phani-waveform" class="audio-waveform">
+            <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
+            <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
+            <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
+            <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
+          </div>
         </div>
       </div>
     </section>

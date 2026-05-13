@@ -196,29 +196,30 @@ function transitionTo(role) {
     onComplete: () => {
       gk.style.display = 'none';
       main.style.display = 'block';
+      document.getElementById('back-btn').style.display = 'block';
 
       if (role === 'senior') {
         seniorSec.style.display = 'block';
         juniorSec.style.display = 'none';
         stopAllBg(); currentBgAudio = 'audio-saxophone';
-        playAudio('audio-spiderman'); // dramatic Spiderman entrance for the legends
-        setTimeout(() => playAudio('audio-saxophone'), 2000); // then romantic sax BG
+        playAudio('audio-spiderman');
+        setTimeout(() => playAudio('audio-saxophone'), 2000);
         startEmojiRain();
         gsap.from(seniorSec, { opacity: 0, y: 40, duration: 0.8, ease: 'power2.out' });
       } else {
         juniorSec.style.display = 'block';
         seniorSec.style.display = 'none';
         stopAllBg(); currentBgAudio = 'audio-ladle';
-        playAudio('audio-chalo'); // "Chalo bhai, pay up"
-        setTimeout(() => {
-          playAudio('audio-ladle'); // meoww ghop ghop BG chaos
-        }, 1500);
+        playAudio('audio-chalo');
+        setTimeout(() => playAudio('audio-ladle'), 1500);
         gsap.from(juniorSec, { opacity: 0, y: 40, duration: 0.8, ease: 'power2.out' });
       }
 
-      // Animate event details and carousel
+      // Animate shared sections
       gsap.from('#event-details', { opacity: 0, y: 60, duration: 0.8, delay: 0.3, ease: 'power2.out' });
-      gsap.from('#carousel-section', { opacity: 0, y: 60, duration: 0.8, delay: 0.5, ease: 'power2.out' });
+      gsap.from('#faculty-messages', { opacity: 0, y: 60, duration: 0.8, delay: 0.5, ease: 'power2.out' });
+      gsap.from('#carousel-section', { opacity: 0, y: 60, duration: 0.8, delay: 0.7, ease: 'power2.out' });
+      initTypingEffect();
 
       window.location.hash = role;
     }
@@ -393,11 +394,89 @@ function makeDraggable(el) {
   }, { passive: true });
 }
 
+// --- BACK BUTTON ---
+document.getElementById('back-btn')?.addEventListener('click', () => {
+  const gk = document.getElementById('gatekeeper');
+  const main = document.getElementById('main-content');
+  // Stop all audio
+  stopAllBg();
+  const phaniAudio = document.getElementById('audio-phani-wishes');
+  if (phaniAudio) { phaniAudio.pause(); phaniAudio.currentTime = 0; }
+  currentBgAudio = null;
+
+  gsap.to(main, {
+    opacity: 0, duration: 0.4, ease: 'power2.in',
+    onComplete: () => {
+      main.style.display = 'none';
+      main.style.opacity = 1;
+      document.getElementById('senior-section').style.display = 'none';
+      document.getElementById('junior-section').style.display = 'none';
+      document.getElementById('back-btn').style.display = 'none';
+      // Reset VIP ticket
+      const ticket = document.getElementById('vip-ticket');
+      if (ticket) ticket.style.display = 'none';
+      const revealBtn = document.getElementById('reveal-pass-btn');
+      if (revealBtn) revealBtn.style.display = 'block';
+      // Show gatekeeper
+      gk.style.display = 'flex';
+      gk.style.opacity = 1;
+      gk.style.transform = 'scale(1)';
+      gsap.from(gk, { opacity: 0, scale: 0.95, duration: 0.5, ease: 'power2.out' });
+      window.location.hash = '';
+      window.scrollTo(0, 0);
+    }
+  });
+});
+
+// --- PHANI AUDIO: WAVEFORM + MUTE BG ---
+(function initPhaniAudio() {
+  const phaniAudio = document.getElementById('audio-phani-wishes');
+  const waveform = document.getElementById('phani-waveform');
+  if (!phaniAudio || !waveform) return;
+
+  phaniAudio.addEventListener('play', () => {
+    waveform.classList.add('active');
+    // Pause background music so the prof can be heard
+    if (currentBgAudio) stopAudio(currentBgAudio);
+  });
+  phaniAudio.addEventListener('pause', () => {
+    waveform.classList.remove('active');
+    // Resume background music
+    if (currentBgAudio && audioUnmuted) playAudio(currentBgAudio);
+  });
+  phaniAudio.addEventListener('ended', () => {
+    waveform.classList.remove('active');
+    if (currentBgAudio && audioUnmuted) playAudio(currentBgAudio);
+  });
+})();
+
+// --- TYPING EFFECT FOR SATHISH ---
+function initTypingEffect() {
+  const note = document.getElementById('sathish-note');
+  if (!note) return;
+  // Reset: remove animation, then re-trigger when scrolled into view
+  const lines = note.querySelectorAll('.typing-line');
+  lines.forEach(l => { l.style.animation = 'none'; l.classList.remove('done'); });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        lines.forEach((l, i) => {
+          l.style.animation = '';
+          // Mark previous lines as done (hide cursor) after they finish
+          setTimeout(() => l.classList.add('done'), (1.6 * (i + 1) + 0.2) * 1000);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(note);
+}
+
 // --- HASH-BASED DIRECT LINKING ---
 function checkHash() {
   const hash = window.location.hash.slice(1);
   if (hash === 'senior' || hash === 'junior') {
-    // Dismiss loading screen immediately
     const ls = document.getElementById('loading-screen');
     if (ls) ls.remove();
     transitionTo(hash);

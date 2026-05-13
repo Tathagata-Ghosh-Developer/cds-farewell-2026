@@ -245,6 +245,85 @@ a { color: var(--neon-cyan); text-decoration: none; }
 .polaroid-video video { height: 200px; border-radius: 2px; }
 .polaroid-video .polaroid-caption { color: var(--text-dim); }
 
+/* === BACK BUTTON === */
+#back-btn {
+  position: fixed; bottom: 24px; left: 24px; z-index: 8888;
+  background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border);
+  color: var(--text); font-family: var(--font-head); font-size: 0.9rem;
+  padding: 10px 18px; border-radius: 30px; cursor: pointer;
+  transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+#back-btn:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
+
+/* === FACULTY MESSAGES === */
+.neon-gold { color: var(--neon-gold); text-shadow: 0 0 20px rgba(255,190,11,0.4); }
+#faculty-messages { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
+.faculty-card {
+  margin-bottom: 32px; padding: 28px; position: relative;
+  border-left: 3px solid var(--neon-gold);
+}
+.faculty-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.faculty-photo {
+  width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--neon-gold); box-shadow: 0 0 20px rgba(255,190,11,0.15);
+}
+.faculty-name { color: var(--neon-gold); font-size: 1.15rem; }
+.faculty-role { color: var(--text-dim); font-size: 0.85rem; font-family: var(--font-mono); }
+.faculty-quote {
+  font-size: 1.1rem; font-style: italic; color: var(--neon-cyan); line-height: 1.6;
+  padding: 12px 20px; margin: 0 0 16px; border-radius: var(--radius-sm);
+  background: rgba(0,212,255,0.04); border-left: none;
+}
+.faculty-note { color: var(--text); line-height: 1.7; font-size: 0.95rem; }
+.faculty-note p { margin-bottom: 8px; }
+.faculty-sign { color: var(--neon-gold); font-style: italic; margin-top: 12px; }
+
+/* Typing effect container */
+.typing-container { overflow: hidden; }
+.typing-container .typing-line {
+  overflow: hidden; white-space: nowrap; border-right: 2px solid var(--neon-cyan);
+  width: 0; animation: typeLine 1.5s steps(60,end) forwards;
+  margin-bottom: 8px;
+}
+.typing-container .typing-line:nth-child(1) { animation-delay: 0.2s; }
+.typing-container .typing-line:nth-child(2) { animation-delay: 1.8s; }
+.typing-container .typing-line:nth-child(3) { animation-delay: 3.4s; }
+.typing-container .typing-line:nth-child(4) { animation-delay: 5.0s; }
+.typing-container .typing-line.done { border-right-color: transparent; }
+@keyframes typeLine { from { width: 0; } to { width: 100%; } }
+
+/* Audio player & waveform */
+.faculty-audio-box { margin-top: 8px; }
+.audio-label { color: var(--neon-cyan); font-size: 0.95rem; margin-bottom: 10px; }
+.faculty-audio-player {
+  width: 100%; max-width: 400px; height: 40px; border-radius: 30px;
+  outline: none; display: block;
+}
+.audio-waveform {
+  display: flex; align-items: flex-end; gap: 3px; height: 40px;
+  margin-top: 12px; opacity: 0; transition: opacity 0.3s;
+}
+.audio-waveform.active { opacity: 1; }
+.audio-bar {
+  width: 4px; background: var(--neon-cyan); border-radius: 2px;
+  animation: waveBar 0.6s ease-in-out infinite alternate;
+}
+.audio-bar:nth-child(1) { animation-delay: 0.0s; height: 10px; }
+.audio-bar:nth-child(2) { animation-delay: 0.1s; height: 20px; }
+.audio-bar:nth-child(3) { animation-delay: 0.2s; height: 30px; }
+.audio-bar:nth-child(4) { animation-delay: 0.1s; height: 15px; }
+.audio-bar:nth-child(5) { animation-delay: 0.3s; height: 35px; }
+.audio-bar:nth-child(6) { animation-delay: 0.15s; height: 25px; }
+.audio-bar:nth-child(7) { animation-delay: 0.25s; height: 18px; }
+.audio-bar:nth-child(8) { animation-delay: 0.05s; height: 28px; }
+.audio-bar:nth-child(9) { animation-delay: 0.2s; height: 12px; }
+.audio-bar:nth-child(10) { animation-delay: 0.35s; height: 32px; }
+.audio-bar:nth-child(11) { animation-delay: 0.1s; height: 22px; }
+.audio-bar:nth-child(12) { animation-delay: 0.3s; height: 16px; }
+@keyframes waveBar {
+  from { transform: scaleY(0.3); } to { transform: scaleY(1); }
+}
+
 /* === FOOTER === */
 #site-footer { text-align: center; padding: 40px 20px 30px; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
 
@@ -414,6 +493,13 @@ a { color: var(--neon-cyan); text-decoration: none; }
   #event-details { padding: 40px 16px 30px; }
   .floating-quote { display: none; }
   #unmute-btn { bottom: 12px; right: 12px; font-size: 0.8rem; padding: 8px 14px; }
+  #back-btn { bottom: 12px; left: 12px; font-size: 0.8rem; padding: 8px 14px; }
+  #faculty-messages { padding: 40px 16px; }
+  .faculty-card { padding: 20px; }
+  .faculty-photo { width: 56px; height: 56px; }
+  .faculty-name { font-size: 1rem; }
+  .faculty-quote { font-size: 0.95rem; padding: 10px 14px; }
+  .typing-container .typing-line { white-space: normal; }
   .upi-qr-img { width: 200px; }
   .upi-amount { font-size: 1rem; }
   .upi-box { padding: 20px; }
@@ -481,6 +567,13 @@ a { color: var(--neon-cyan); text-decoration: none; }
   .easter-egg-content { padding: 20px; margin: 0 12px; }
   .easter-egg-content h2 { font-size: 1.3rem; }
   #unmute-btn { bottom: 8px; right: 8px; font-size: 0.75rem; padding: 6px 12px; }
+  #back-btn { bottom: 8px; left: 8px; font-size: 0.75rem; padding: 6px 12px; }
+  .faculty-card { padding: 16px; }
+  .faculty-photo { width: 48px; height: 48px; }
+  .faculty-name { font-size: 0.95rem; }
+  .faculty-quote { font-size: 0.9rem; }
+  .faculty-note { font-size: 0.85rem; }
+  .typing-container .typing-line { white-space: normal; }
   #site-footer { padding: 24px 12px 20px; font-size: 0.8rem; }
 }
 
